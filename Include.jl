@@ -1,12 +1,12 @@
-# setup my paths -
-const _PATH_TO_ROOT = @__DIR__;
-const _PATH_TO_SRC = joinpath(_PATH_TO_ROOT, "src");
-const _PATH_TO_DATA = joinpath(_PATH_TO_ROOT, "data");
-
+# setup paths -
+const _ROOT = pwd();
+const _PATH_TO_SRC = joinpath(_ROOT, "src");
+const _PATH_TO_DATA = joinpath(_ROOT, "data");
+const _PATH_TO_SOLN = joinpath(_ROOT, "soln");
 
 # make sure all is up to date -
 using Pkg
-if (isfile(joinpath(_PATH_TO_ROOT, "Manifest.toml")) == false) # have manifest file, we are good. Otherwise, we need to instantiate the environment
+if (isfile(joinpath(_ROOT, "Manifest.toml")) == false) # have manifest file, we are good. Otherwise, we need to instantiate the environment
     Pkg.add(path="https://github.com/varnerlab/VLQuantitativeFinancePackage.jl.git")
     Pkg.activate("."); Pkg.resolve(); Pkg.instantiate(); Pkg.update();
 end
@@ -25,10 +25,10 @@ using StatsPlots
 using JLD2
 using FileIO
 using Distributions
+using DataStructures
 using PrettyTables
 using Test
 
-# load my files -
-include(joinpath(_PATH_TO_SRC, "Types.jl"));
-include(joinpath(_PATH_TO_SRC, "Factory.jl"));
-include(joinpath(_PATH_TO_SRC, "Trees.jl"));
+# load my codes -
+include(joinpath(_PATH_TO_SRC, "Files.jl"));
+include(joinpath(_PATH_TO_SRC, "Utility.jl"));
