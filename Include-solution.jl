@@ -26,6 +26,7 @@ using JLD2
 using FileIO
 using Distributions
 using PrettyTables
+using Test
 
 # load my files -
 include(joinpath(_PATH_TO_SRC, "Types.jl"));
