@@ -4,9 +4,6 @@ const _PATH_TO_SRC = joinpath(_ROOT, "src");
 const _PATH_TO_DATA = joinpath(_ROOT, "data");
 const _PATH_TO_SOLN = joinpath(_ROOT, "soln");
 
-# set flag to indicate that this file has been run
-const _DID_THIS_INCLUDE_JL_RUN = true;
-
 # make sure all is up to date -
 using Pkg
 if (isfile(joinpath(_ROOT, "Manifest.toml")) == false) # have manifest file, we are good. Otherwise, we need to instantiate the environment
